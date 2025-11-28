@@ -385,7 +385,65 @@ body{
   font-weight:600;
 }
 
-/* RESPONSIVE */
+/* ===== CERTIFICACIONES ===== */
+.certifications {
+  margin-top: 28px;
+  background: linear-gradient(180deg, #151515, #0f0f0f);
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.certifications h2 {
+  font-family: var(--font-accent);
+  color: var(--blue-2);
+  margin-bottom: 14px;
+}
+
+.cert-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cert-card {
+  background: #0f0f0f;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease;
+  width: 200px;
+}
+
+.cert-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.cert-card .cert-info {
+  padding: 12px;
+}
+
+.cert-card .cert-info h3 {
+  font-family: var(--font-accent);
+  font-size: 16px;
+  color: var(--blue-2);
+  margin: 0;
+  text-align: center;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.55);
+}
+
+
+/* RESPONSIVE 
 @media (max-width:1100px){
   .container{ grid-template-columns: 300px 1fr; padding:18px; gap:18px }
   .projects-grid{ grid-template-columns: repeat(2,1fr) }
@@ -400,5 +458,255 @@ body{
   .projects-grid{ grid-template-columns: 1fr }
   .skills-grid{ grid-template-columns: repeat(4,1fr) }
   .exp-grid{ grid-template-columns:1fr }
+} 
+  /* ============================================================
+   RESPONSIVE FULL — VERSIÓN MEJORADA Y FOOTER SIEMPRE ABAJO
+   ============================================================ */
+
+/* ---- FIJA EL FOOTER AL FINAL REAL ---- */
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  margin-top: auto !important;
+  order: 9999 !important;
+  text-align: center;
+  width: 100%;
+}
+
+/* ====== TABLET (≤ 1100px) ====== */
+@media (max-width: 1100px) {
+
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+  }
+
+  .hero {
+    gap: 20px;
+  }
+
+  .hero-photo img {
+    width: 220px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .projects-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cert-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ====== MOBILE LANDSCAPE (≤ 900px) ====== */
+@media (max-width: 900px) {
+
+  /* Pone HERO primero */
+  .hero {
+    order: -1 !important;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-photo img {
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 15px;
+  }
+
+  /* Layout general */
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    top: 0;
+    order: 2;
+  }
+
+  .main {
+    order: 1;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .projects-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Certificaciones */
+  .cert-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .cert-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* ====== MOBILE FULL (≤ 600px) ====== */
+@media (max-width: 600px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sidebar {
+    padding: 14px;
+    border-radius: 14px;
+    order: 3;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  /* HERO sigue arriba */
+  .hero {
+    order: -2 !important;
+  }
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .description {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Projects */
+  .projects-cards {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .proj-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* Certificaciones */
+  .cert-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cert-card {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .cert-card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  /* Timeline */
+  .timeline-line {
+    border-left-width: 2px;
+    margin-left: 10px;
+  }
+
+  .timeline-item {
+    margin-bottom: 22px;
+  }
+
+  .tl-content h3 {
+    font-size: 15px;
+  }
+
+  /* Contact section */
+  .contact-section {
+    margin-bottom: 40px;
+  }
+
+  /* Footer */
+  .site-footer {
+    margin-top: 60px !important;
+    order: 9999 !important;
+  }
+
+  .site-footer p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+/* ====== EXTRA SMALL (≤ 420px) ====== */
+@media (max-width: 420px) {
+
+  .hero-text h1 {
+    font-size: 22px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .proj-card img {
+    height: 170px;
+  }
+
+  .contact-list li {
+    font-size: 12px;
+  }
+
+  .services-list,
+  .extras-card ul {
+    font-size: 13px;
+  }
 }
 
